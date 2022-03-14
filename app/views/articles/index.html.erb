@@ -4,6 +4,7 @@
     <thead>
         <tr>
             <th>Title</th>
+            <th>Content</th>
         </tr>
     </thead>
 
@@ -11,7 +12,10 @@
     <% @articles.each do |article| %>
         <tr>
             <td>
-                <% article.title %>
+                <%= article.title %>
+            </td>
+            <td>
+                <%= article.content %>
             </td>
         </tr>
         <% end %>
