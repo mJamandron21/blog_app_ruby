@@ -1,0 +1,17 @@
+%h1 Index Page!
+
+%table
+    %thead
+        %tr
+            %th Title
+            %th Content
+            %th Date
+            %th Action
+
+    %tbody
+        - @authors.each do |author| 
+            %tr
+                %td= author.name
+                %td= author.address
+                %td= author.date
+                %td= link_to 'Delete', author , method: :delete, data: {confirm: 'are you sure?'}

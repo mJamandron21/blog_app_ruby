@@ -1,0 +1,23 @@
+
+<% if author.errors.any? %>
+<% author.errors.each do |error| %>
+<p> <%= error.full_message %> </p>
+
+<% end %>
+<% end %>
+
+
+<%= form_with model: @author do |form| %>
+
+<%= form.label :name %>
+<%= form.text_field :name %>
+
+<%= form.label :address %>
+<%= form.text_field :address %>
+
+<%= form.label :date %>
+<%= form.date_select :date %>
+
+<%= form.submit %>
+
+<% end %>
