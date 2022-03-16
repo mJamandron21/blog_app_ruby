@@ -7,11 +7,11 @@ class Author < ApplicationRecord
 
     #date validation
     validates :date, presence:true
-    validate :check_date
+    # validate :check_date
 
-    def check_date
-        if !self.date.nil? && self.date < Date.today
-            errors.add(:date, "This date should not be later than today!")
-        end
-    end
+    # def check_date
+    #     if !self.date.nil? && self.date < Date.today
+    #         errors.add(:date, "This date should not be later than today!")
+    #     end
+    # end
 end
