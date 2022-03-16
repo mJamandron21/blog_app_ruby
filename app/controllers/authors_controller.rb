@@ -1,5 +1,7 @@
 class AuthorsController < ApplicationController
 
+    before_action :set_author, only: [:show, :edit, :update, :destroy]
+
     def index   
         @authors = Author.all
     end
@@ -45,7 +47,7 @@ class AuthorsController < ApplicationController
     end
 
     def author_params
-        params.require(:author).permit(:name, :address, :date)
+        params.require(:author).permit(:name, :address, :date, :is_verified)
     end
 
 end
