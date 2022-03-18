@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+    has_many :comments #plural for one to many relationship
     validates :content, presence:true
     # validates :content, length: { minimum: 2, message: 'too short'}
 
