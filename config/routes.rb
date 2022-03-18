@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 #patch 'articles/:id', to: 'articles#update'
 #delete 'articles/:id', to: 'articles#destroy'
 
-resources :articles
-
 #authors routes
 #get 'authors', to: 'authors#index', as: 'authors'
 #post 'authors', to: 'authors#create'
@@ -21,6 +19,10 @@ resources :articles
 #get 'authors/:id/edit', to: 'authors#edit', as: 'edit_author'
 #patch 'authors/:id', to: 'authors#update'
 #delete 'authors/:id', to: 'authors#destroy'
+
+resources :articles do
+  resources :comments
+end
 
 resources :authors
 
