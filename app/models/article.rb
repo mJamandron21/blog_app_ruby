@@ -3,6 +3,9 @@ class Article < ApplicationRecord
     validates :content, presence:true
     # validates :content, length: { minimum: 2, message: 'too short'}
 
+    has_many :article_advertisements
+    has_many :advertisements, through: :article_advertisements
+
     validate :check_length
 
     def check_length

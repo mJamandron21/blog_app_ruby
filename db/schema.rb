@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_28_124213) do
+ActiveRecord::Schema.define(version: 2022_03_28_125651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "advertisements", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "article_advertisements", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "advertisement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
+    t.index ["advertisement_id"], name: "index_article_advertisements_on_advertisement_id"
+    t.index ["article_id"], name: "index_article_advertisements_on_article_id"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -61,6 +77,8 @@ ActiveRecord::Schema.define(version: 2022_03_28_124213) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "article_advertisements", "advertisements"
+  add_foreign_key "article_advertisements", "articles"
   add_foreign_key "comments", "articles"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
